@@ -1,6 +1,5 @@
-FROM ubuntu:latest
-
-MAINTAINER Pepijn Bruienne bruienne@gmail.com
+FROM sdhibit/rpi-raspbian:latest
+MAINTAINER Nuno Sousa nunofgs@gmail.com
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -19,6 +18,7 @@ ADD exports.dist /etc/exports
 ADD start.sh /start.sh
 
 RUN chmod +x /start.sh
+RUN mkdir -p /run/sendsigs.omit.d/
 
 EXPOSE 111/udp 111/tcp 2049/tcp 2049/udp
 
